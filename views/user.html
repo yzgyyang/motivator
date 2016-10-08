@@ -42,34 +42,67 @@
       <!--to do list + others-->
       <div id="content-area" class="container">
           <div class="row">
+              
               <div id="todo-panel" class="col-xs-7">
+                  
                     <div class="panel panel-default">
-                        <div id="todo-panel-heading" class="panel-heading"> To Do List
+                        <button id="user-btn" class="btn btn-danger">
+                            + Assign
+                        </button>
+                        <button id="user-btn" class="btn btn-info">
+                            + Request
+                        </button>
+                        <div id="panel-heading" class="panel-heading"> To Do List
                         </div>
+                        
                         <div id="panel-body-custom" class="panel-body">
-
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="todolist not-done">
+                                        <input type="text" class="form-control add-todo" placeholder="Add todo">
+                                        <ul id="not-finished">
+                                            <li>
+                                                <div class="checkbox">
+                                                    <label>
+                                                    <input type="checkbox" value="" />Buy bread</label>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
               </div>
               <div id="did-panel" class="col-xs-7">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Finished
+                    <button id="user-btn" class="btn btn-info">
+                            + Clear
+                    </button>
+                    <div id="panel-heading" class="panel-heading">Finished
                     </div>
                     <div id="panel-body-custom" class="panel-body">
+                        <ul class="finished">
+                            <li>V Hi</li>
+                            <li>To buy something</li>
+                            <li>GAGA</li>
+                        </ul>
                     </div>
                 </div>
               </div>
               <div id ="goal-panel" class="col-xs-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading"> Goal
+                    <button id="user-btn" class="btn btn-danger">
+                            + Add
+                        </button>
+                    <div id="panel-heading" class="panel-heading"> Goal
                     </div>
                     <div id="panel-body-custom" class="panel-body">
-                    <div id="panel-body-custom" class="panel-body">
-                        
+                   
                     </div>
-                </div>
               </div>
+            </div>
+          </div>
       </div>
-
   </body>
 </html>

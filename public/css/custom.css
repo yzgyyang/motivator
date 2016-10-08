@@ -12,11 +12,11 @@
     background-color: white;
     border-radius: 0px;
 }
-
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     border-radius: 6px;
     color: rgba(20, 20, 20, 1);
     background-color: white;
+    font-weight: bold;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
@@ -68,11 +68,12 @@
     margin-top: -20px;
     width: 100%;
     height: auto;
+
 }
 
 #todo-panel{
     font-size: 15px;
-    margin-left: 2%;
+    margin-left: 1%;
     width: 32%;
     min-width: 300px;
     height: auto;
@@ -81,6 +82,10 @@
 }
 #todo-panel img{
     float: right;
+}
+#panel-heading{
+    font-weight: bold;
+    
 }
 #goal-panel{
     font-size: 15px;
@@ -98,4 +103,24 @@
 }
 #panel-body-custom{
     height: 300px;
+}
+#panel-body-custom ul{
+    list-style: none;
+    padding-left: 0;
+}
+#panel-body-custom li{
+    background:#fff;
+    border:none;
+    border-bottom:2px solid #ddd;
+    height: 25px;
+}
+#not-finished{
+    list-style: none;
+    padding-left: 0;
+}
+#user-btn{
+    float:right;
+    display: block;
+    
+    margin: 4px 4px 4px 0;
 }

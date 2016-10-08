@@ -55,7 +55,7 @@ function onSignIn(googleUser) {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
+        
       });
       //res.redirect('/users');
     } else {
