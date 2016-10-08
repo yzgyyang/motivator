@@ -1,6 +1,11 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="24548565731-p6cjt18tdd5s6rnoalo3u4k332g8a11e.apps.googleusercontent.com">
+<meta name="google-signin-cookiepolicy" content="single_host_origin">
+<meta name="google-signin-scope" content="profile email">
 <% include header %>
 
   <h1><%-title %></h1>
   <p>Welcome to <%-title %></p>
-  <div id="firebaseui-auth-container"></div>
+  <div id="firebaseui-auth-container">
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></div>
 <% include footer %>
