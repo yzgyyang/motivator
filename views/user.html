@@ -6,27 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Motivater</title>
-
+    
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../public/css/custom.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
   <body>
       <!--nav part-->
       <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand" href="#">Motivator</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="user.html">Home</a></li>
-                    <li><a href="#manage">Account</a></li>
-                    <li><a href="login.html">Logout</a></li>
-                </ul>
-            </div>
+          <div class="navbar-header"><a class="navbar-brand" href="#">Motivator</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="user.html">Home</a></li>
+              <li><a href="#manage">Account</a></li>
+              <li><a href="login.html">Logout</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <!--header-->
@@ -41,65 +45,97 @@
       </div>
       <!--to do list + others-->
       <div id="content-area" class="container">
-          <div class="row">
-              
-              <div id="todo-panel" class="col-xs-7">
-                  
-                    <div class="panel panel-default">
-                        <button id="user-btn" class="btn btn-danger">
-                            + Assign
-                        </button>
-                        <button id="user-btn" class="btn btn-info">
-                            + Request
-                        </button>
-                        <div id="panel-heading" class="panel-heading"> To Do List
+          <div class="row">              
+            <div id="todo-panel" class="col-xs-7">                 
+              <div class="panel panel-default">
+                  <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#assignModal">
+                      + Assign
+                  </button>
+                  <!-- A model -->
+                  <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">New Task</h4>
                         </div>
-                        
-                        <div id="panel-body-custom" class="panel-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="todolist not-done">
-                                        <input type="text" class="form-control add-todo" placeholder="Add todo">
-                                        <ul id="not-finished">
-                                            <li>
-                                                <div class="checkbox">
-                                                    <label>
-                                                    <input type="checkbox" value="" />Buy bread</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="modal-body">
+                          ...
                         </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Assign Task</button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <button id="user-btn" class="btn btn-primary">
+                      + Request
+                  </button>
+                  <div id="panel-heading" class="panel-heading"> To Do List
+                  </div>
+                  
+                  <div id="panel-body-custom" class="panel-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="todolist not-done">
+                          <ul id="not-finished">
+                            <li>
+                              <div class="checkbox">
+                                <label><input type="checkbox" value="" />Buy bread</label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div id="did-panel" class="col-xs-7">
                 <div class="panel panel-default">
-                    <button id="user-btn" class="btn btn-info">
-                            + Clear
-                    </button>
-                    <div id="panel-heading" class="panel-heading">Finished
+                  <button type="button" id="user-btn" class="btn btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                    + Clear
+                  </button>
+                  <!-- A model -->
+                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Delete Confirm</h4>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Delete Anyway</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
                     </div>
-                    <div id="panel-body-custom" class="panel-body">
-                        <ul class="finished">
-                            <li>V Hi</li>
-                            <li>To buy something</li>
-                            <li>GAGA</li>
-                        </ul>
-                    </div>
+                  </div>
+                  <div id="panel-heading" class="panel-heading">Finished
+                  </div>
+                  <div id="panel-body-custom" class="panel-body">
+                    <ul class="finished">
+                      <li>V Hi</li>
+                      <li>To buy something</li>
+                      <li>GAGA</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div id ="goal-panel" class="col-xs-4">
                 <div class="panel panel-default">
-                    <button id="user-btn" class="btn btn-danger">
-                            + Add
-                        </button>
-                    <div id="panel-heading" class="panel-heading"> Goal
-                    </div>
-                    <div id="panel-body-custom" class="panel-body">
-                   
-                    </div>
+                  <button id="user-btn" class="btn btn-danger">
+                          + Add
+                      </button>
+                  <div id="panel-heading" class="panel-heading"> Goal
+                  </div>
+                  <div id="panel-body-custom" class="panel-body">                 
+                  </div>
               </div>
             </div>
           </div>
