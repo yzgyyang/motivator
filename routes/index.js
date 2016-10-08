@@ -6,14 +6,8 @@ var router = express.Router();
 var firebase = require('./firebase.js');
 
 router.get('/', function(req, res) {
-	loginWithGoogle();
-	firebase.auth().onAuthStateChanged(function(user) {
-	if (user) {
-	console.log("log in with Google");
-	} else {
-	console.log("not log in with Google");
-	}});
-  res.render('index', { title: 'Express'});
+	//loginWithGoogle();
+	res.render('index', { title: 'Express'});
 });
 
 // function createUser(email, password){
@@ -36,6 +30,7 @@ function loginWithGoogle() {
     console.log(error);
   });
 }
+
 function onSignIn(googleUser) {
   console.log('Google Auth Response', googleUser);
   // We need to register an Observer on Firebase Auth to make sure auth is initialized.
@@ -43,35 +38,25 @@ function onSignIn(googleUser) {
     unsubscribe();
     // Check if we are already signed-in Firebase with the correct user.
     if (!isUserEqual(googleUser, firebaseUser)) {
-      // Build Firebase credential with the Google ID token.
-      var credential = firebase.auth.GoogleAuthProvider.credential(
-          googleUser.getAuthResponse().id_token);
-      // Sign in with credential from the Google user.
-      firebase.auth().signInWithCredential(credential).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        
-      });
-      //res.redirect('/users');
-    } else {
-      console.log('User already signed-in Firebase.');
-    }
-    
+    	// Build Firebase credential with the Google ID token.
+     	 var credential = firebase.auth.GoogleAuthProvider.credential(
+          	googleUser.getAuthResponse().id_token);
+		// Sign in with credential from the Google user.
+		firebase.auth().signInWithCredential(credential).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		// The email of the user's account used.
+		var email = error.email;
+		// The firebase.auth.AuthCredential type that was used.
+		var credential = error.credential;
 
-if (firebase.currentUser != null) {
-  user.providerData.forEach(function (profile) {
-    console.log("Sign-in provider: "+profile.providerId);
-    console.log("  Provider-specific UID: "+profile.uid);
-    console.log("  Name: "+profile.displayName);
-    console.log("  Email: "+profile.email);
-    console.log("  Photo URL: "+profile.photoURL);
-  });
-}
+		});
+		res.redirect("/users");
+    } else {
+    	res.redirect("/");
+    	console.log('User already signed-in Firebase.');
+    }
   });
 }
 
