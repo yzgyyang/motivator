@@ -1,42 +1,47 @@
 #custom-bootstrap-menu.navbar-default .navbar-brand{
     color: black;
-    font-size: 22px;
+    font-size: 35px;
+    font-family: "Brush Script MT", cursive;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
 }
 #custom-bootstrap-menu.navbar-default {
     font-size: 15px;
-    background-color: lightgrey;
+    background-color: white;
     border-radius: 0px;
 }
 
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     border-radius: 6px;
     color: rgba(20, 20, 20, 1);
-    background-color: lightgrey;
+    background-color: white;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
     color: slategrey;
-    background-color: lightgrey;
+    background-color: white;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
     color: rgba(85, 85, 85, 1);
-    background-color: lightgrey;
+    background-color: white;
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
-    border-color: lightgrey;
+    border-color: white;
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
-    background-color: lightgrey;
+    background-color: white;
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
     background-color: black;
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: lightgrey;
+    background-color: white;
 }
 #custom-bootstrap-menu.jumbotron {
     background-color: white;
@@ -59,7 +64,7 @@
     margin-top: 38px;
 }
 #content-area{
-    background-color:lightgrey;
+    background-color:white;
     margin-top: -20px;
     width: 100%;
     height: auto;
