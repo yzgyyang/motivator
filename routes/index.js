@@ -5,7 +5,9 @@ var router = express.Router();
 // FirebaseUI config.
 var firebase = require('./firebase.js');
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express'});
+  res.render('index',{title: 'Motivator'});
 });
-
+router.get('/list', function(req,res){
+	res.render('list');
+})
 module.exports = router;
