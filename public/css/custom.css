@@ -12,7 +12,6 @@
     background-color: white;
     border-radius: 0px;
 }
-
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     border-radius: 6px;
     color: rgba(20, 20, 20, 1);
@@ -118,4 +117,10 @@
 #not-finished{
     list-style: none;
     padding-left: 0;
+}
+#user-btn{
+    float:right;
+    display: block;
+    
+    margin: 4px 4px 4px 0;
 }
