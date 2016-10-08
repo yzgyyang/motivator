@@ -7,6 +7,12 @@ var firebase = require('./firebase.js');
 
 router.get('/', function(req, res) {
 	loginWithGoogle();
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+	console.log("log in with Google");
+	} else {
+	console.log("not log in with Google");
+	}});
   res.render('index', { title: 'Express'});
 });
 
