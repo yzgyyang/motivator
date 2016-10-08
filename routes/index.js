@@ -30,6 +30,7 @@ function onSignIn(googleUser) {
         var credential = error.credential;
         // ...
       });
+      res.redirect('/users');
     } else {
       console.log('User already signed-in Firebase.');
     }
