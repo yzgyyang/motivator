@@ -6,9 +6,30 @@ var router = express.Router();
 var firebase = require('./firebase.js');
 
 router.get('/', function(req, res) {
+	loginWithGoogle();
   res.render('index', { title: 'Express'});
 });
 
+// function createUser(email, password){
+//   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//   // Handle Errors here.
+//   console.log("creating user");
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+  
+// });
+// }
+function loginWithGoogle() {
+  // Instantiate the Google authentication provider
+  console.log("log in with Google");
+  var provider = new firebase.auth.GoogleAuthProvider();
+  // Handle the authentication request using the Popup method
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    var user = result.user;
+  }).catch(function(error) {
+    console.log(error);
+  });
+}
 function onSignIn(googleUser) {
   console.log('Google Auth Response', googleUser);
   // We need to register an Observer on Firebase Auth to make sure auth is initialized.
@@ -30,7 +51,7 @@ function onSignIn(googleUser) {
         var credential = error.credential;
         // ...
       });
-      res.redirect('/users');
+      //res.redirect('/users');
     } else {
       console.log('User already signed-in Firebase.');
     }
