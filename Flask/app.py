@@ -21,14 +21,15 @@ login_manager.init_app(app)
 # Define a route for the default URL, which loads the form
 @app.route('/')
 def index():
-
 	return render_template('login.html')
 
+# Authenticates username and password against json data
 @app.route('/sign_in', methods = ['POST'])
 def sign_in():
 	json_data = open(users_json)
-	data = json.load(users_json)
+	data = json.load(json_data)
 	json_data.close()
+	global username 
 	username = request.form["username"]
 
 	if (username in data["user"]
@@ -49,17 +50,15 @@ def assign():
     			"point": request.args.get('point')}
 
     task_data = {"child" : "user1"
-			    , "deadline" : 0
-			    , "motipoint": ret_data["point"]
-			    , "name": ret_data["todo"]
-			    , "parent": "user2"
-			    , "statuss": "requested"
-			    , "submit_time": 0}
-
-    with open(tasks_json) as t:
-    	data = json.load(t)
-
-    data.update(task_data)
+    , "deadline" : 0
+    , "motipoint": ret_data["point"]
+    , "name": ret_data["todo"]
+    , "parent": "user2"
+    , "status": "requested"
+    , "submit_time": 0}
+    json_data = open(tasks_json)
+    data = json.load(json_data)
+    data["tasks"].append(task_data)
 
     with open(tasks_json, 'w') as t:
     	json.dump(data, t)
