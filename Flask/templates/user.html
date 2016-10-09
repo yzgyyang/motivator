@@ -38,10 +38,21 @@
         };
         //triggers when user clicked on the checkbox
         $( "input[type=checkbox]" ).on( "click", countChecked );
-
+        //ajax function for adding goal
+        $("#add_goal").click(function(){
+          $.ajax({
+            type: "GET",
+            url: $SCRIPT_ROOT + "/goal/",
+            contentType: "application/json; charset=utf-8",
+            data: {goal: $('input[name="goal"]').val(),
+                   point: $('input[name="motipoint_goal"]').val()},
+            success: function(data){
+              $('#goal').append("<li><img id='coin' src='../static/coin_dollar_icon.gif' style='width:13px;height:13px;''><span id='coin-value'>"+data.point+"</span><div class='checkbox' id='task-content'>"+data.goal+"</div></li>")
+            }
+          })
+        });
         //ajax function to assign new tasks
         $("#assignBtn").click(function() {
-            console.log("ajax");
              $.ajax({
                 type: "GET",
                 url: $SCRIPT_ROOT + "/assign/",
@@ -390,7 +401,7 @@
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="todo">Goal</label>  
                               <div class="col-md-4">
-                              <input id="todo" name="todo" type="text" placeholder="Buy a PS10" class="form-control input-md" >
+                              <input id="todo" name="goal" type="text" placeholder="Buy a PS10" class="form-control input-md" >
 
                               </div>
                             </div>
@@ -399,7 +410,7 @@
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="motipoint">Motipoints</label>  
                               <div class="col-md-4">
-                              <input id="motipoint" name="motipoint" type="text" placeholder="5000" class="form-control input-md">
+                              <input id="motipoint" name="motipoint_goal" type="text" placeholder="5000" class="form-control input-md">
 
                               </div>
                             </div>
@@ -410,7 +421,7 @@
 
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Goal</button>
+                          <button type="button" id="add_goal" class="btn btn-danger" data-dismiss="modal">Assign Goal</button>
                           <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
                         </div>
                       </div>
@@ -420,7 +431,7 @@
                   <div id="panel-heading" class="panel-heading"> Goal
                   </div>
                   <div id="panel-body-custom-finished" class="panel-body"> 
-                       <ul class="finished">
+                       <ul id="goal">
                         <li>
                             <img id="coin" src="../static/coin_dollar_icon.gif" style="width:13px;height:13px;">
                             <span id="coin-value">100</span>

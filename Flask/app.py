@@ -40,7 +40,6 @@ def sign_in():
 
 @app.route('/<username>')
 def user(username):
-	print(username)
 	task_data = open(tasks_json)
 	data = json.load(task_data)
 	task_data.close()
@@ -51,8 +50,16 @@ def user(username):
 			t["tasks"].append(task)
 			count += 1
 	return render_template('user.html', tasks=t["tasks"], count=count)
-	
-# test for jquery
+#assign new goal
+@app.route('/goal/', methods=['GET'])
+def goal():
+	ret_data = {'goal': request.args.get('goal'),
+				'point': request.args.get('point')}
+
+	return jsonify(ret_data)
+
+
+# assign new todo
 @app.route('/assign/', methods=['GET'])
 def assign():
     ret_data = {"todo": request.args.get('todo'),
