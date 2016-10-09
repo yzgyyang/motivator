@@ -5,7 +5,6 @@ import json
 import flask_login
 from flask import jsonify 
 
-
 username = "fondson";
 users_json = "users.json"
 tasks_json = "tasks.json"
@@ -29,6 +28,7 @@ def sign_in():
 	json_data = open(users_json)
 	data = json.load(json_data)
 	json_data.close()
+	
 	global username 
 	username = request.form["username"]
 
@@ -40,8 +40,16 @@ def sign_in():
 
 @app.route('/<username>')
 def user(username):
-
-	return render_template('user.html')
+	print(username)
+	task_data = open(tasks_json)
+	data = json.load(task_data)
+	task_data.close();
+	t = {"tasks":[]}
+	for task in data["tasks"]:
+		if(task["child"] == username):
+			t["tasks"].append(task)
+	print("T is", t["tasks"])
+	return render_template('user.html', tasks=t["tasks"])
 	
 # test for jquery
 @app.route('/assign/', methods=['GET'])
