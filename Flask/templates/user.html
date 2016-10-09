@@ -22,7 +22,7 @@
     
     <script type="text/javascript">
       $(function() {
-        $("#submitBtn").click(function() {
+        $("#assignBtn").click(function() {
             console.log("ajax");
              $.ajax({
                 type: "GET",
@@ -34,8 +34,7 @@
                     console.log(data.todo, data.point);
                     
                     //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
-                    $('.checkbox').append("<label><input type=checkbox value='' />"+ data.todo +
-                      "</label>")
+                    $('#not-finished').append("<li><div class='checkbox' id='todo-box' ><label><input type='checkbox' value='' />"+ data.todo + "</label></div></li>")
                     
 
                 }
@@ -75,9 +74,10 @@
       </div>
       <!--to do list + others-->
       <div id="content-area" class="container">
-          <div class="row">              
-            <div id="todo-panel" class="col-xs-7">                 
+          <div class="row"> 
+          <div id="todo-panel" class="col-xs-7">                 
               <div id="custom-panel-default" class="panel panel-default">
+
                  <!--  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">  -->
 
               
@@ -88,6 +88,7 @@
                       Submit
                   </button>
                   
+
                   <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
                       + Assign
                   </button>
@@ -135,6 +136,8 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
+                          <button type="button" id="assignBtn" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
+
                           <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
                         </div>
                       </div>
@@ -208,7 +211,7 @@
                           <ul id="not-finished">
 
 
-                            <li id="todo-assigned">
+                           <!--  <li id="todo-assigned">
                                 <button type="button" id="user-btn-task" class="btn btn btn-danger">
                                     <input id="todo-box" class="checkbox" type="checkbox" value="" />
                                     <p id="todo-box-p">Buy bread</p>
@@ -272,7 +275,25 @@
                                     <img id="todo-coin" src="../static/coin_dollar_icon.gif" style="width:15px;height:15px;">
                                     <p id="todo-coin-p">50</p>
                                 </button>
+                            </li>  -->
+
+                          {% for task in tasks %}
+                           <li id="todo-assigned">
+                                <button type="button" id="user-btn-task" class="btn btn btn-warning">
+                                    <input id="todo-box" class="checkbox" type="checkbox" value="" />
+                                    <p id="todo-box-p">{{task.name}}</p>
+                                    <img id="todo-coin" src="../static/coin_dollar_icon.gif" style="width:15px;height:15px;">
+                                    <p id="todo-coin-p">50</p>
+                                </button>
                             </li> 
+                          <!-- <li>
+                              <div class="checkbox" id="todo-box" >
+                                <label><input type="checkbox" value="" />{{task.name}}</label>
+                              </div>
+                            </li> -->
+                          {% endfor %}
+                            
+                            
 
                           </ul>
                         </div>
@@ -280,7 +301,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>             
+            
               <div id="did-panel" class="col-xs-7">
                 <div id="custom-panel-default" class="panel panel-default">
                   <button type="button" id="user-btn-clear" class="btn btn btn-primary" data-toggle="modal" data-target="#deleteModal">
