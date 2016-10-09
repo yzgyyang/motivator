@@ -43,13 +43,14 @@ def user(username):
 	print(username)
 	task_data = open(tasks_json)
 	data = json.load(task_data)
-	task_data.close();
+	task_data.close()
+	count = 0
 	t = {"tasks":[]}
 	for task in data["tasks"]:
 		if(task["child"] == username):
 			t["tasks"].append(task)
-	print("T is", t["tasks"])
-	return render_template('user.html', tasks=t["tasks"])
+			count += 1
+	return render_template('user.html', tasks=t["tasks"], count=count)
 	
 # test for jquery
 @app.route('/assign/', methods=['GET'])

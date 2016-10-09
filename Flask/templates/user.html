@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/custom.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css"> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- jquery -->
@@ -22,8 +22,24 @@
     
     <script type="text/javascript">
       $(function() {
-        var max = 5;
-        var count = 0;
+        //get the total count of checked boxes
+        var count = '{{count}}';
+        //when user checked the checkbox, it will delete the current one and move it to the finished section and add the motipoints to the total
+        var countChecked = function() {
+        var checkbox = $("input:checked");
+        var value = checkbox.attr('value');
+        var array = value.split(',');
+        $("#"+array[0]).remove();
+        $('#finished').append("<li><div id='task-stat' class='label label-primary'>Pending</div><div class='checkbox' id='task-content'>"+array[1]+"</div></li>");
+        var motipoint = $('#motipoint').text();
+        motipoint = Number(motipoint) + Number(array[2]);
+        $('#motipoint').text(motipoint);
+        console.log(motipoint);
+        };
+        //triggers when user clicked on the checkbox
+        $( "input[type=checkbox]" ).on( "click", countChecked );
+
+        //ajax function to assign new tasks
         $("#assignBtn").click(function() {
             console.log("ajax");
              $.ajax({
@@ -35,7 +51,11 @@
                 success: function(data) {
                     console.log(data.todo, data.point);
                     //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
-                    $('#not-finished').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
+                    if(count <= 5 ){
+                    $('#col1').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
+                    }else if(count > 5){
+                    $('#col2').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
+                    }
                     
 
                 }
@@ -67,7 +87,7 @@
       <div id="custom-bootstrap-menu" class="jumbotron text-left">
           <div id="current-reward">
               <img id="coin-header" src="../static/coin_dollar_icon.gif" style="width:30px;height:30px;">
-              <h1>100</h1>
+              <h1 id="motipoint">100</h1>
           </div>
           <div id="movitation">
               <i>"Hi, welcome to the website! GAG sAGA GAGA!, I just want to say something so it fills up the thrid line and check if it's not awk."</i>
@@ -277,21 +297,22 @@
                                     <p id="todo-coin-p">50</p>
                                 </button>
                             </li>  -->
-
-                          {% for task in tasks %}
-                           <li id="todo-assigned">
+                            
+                            
+                          {% set c = 0 %}
+                          {% for n in range(count)  %}
+          
+                            <li id="{{tasks[c].id}}">
                                 <button type="button" id="user-btn-task" class="btn btn btn-warning">
-                                    <input id="todo-box" class="checkbox" type="checkbox" value="" />
-                                    <p id="todo-box-p">{{task.name}}</p>
+                                    <input id="todo-box" class="checkbox" type="checkbox" value="{{tasks[c].id}},{{tasks[c].name}}, {{tasks[c].motipoint}}" />
+                                    <p id="todo-box-p">{{tasks[c].name}}</p>
                                     <img id="todo-coin" src="../static/coin_dollar_icon.gif" style="width:15px;height:15px;">
-                                    <p id="todo-coin-p">50</p>
+                                    <p id="todo-coin-p">{{tasks[c].motipoint}}</p>
                                 </button>
-                            </li> 
-                          <!-- <li>
-                              <div class="checkbox" id="todo-box" >
-                                <label><input type="checkbox" value="" />{{task.name}}</label>
-                              </div>
-                            </li> -->
+                            </li>
+                        
+                            {% set c = c + 1 %}
+                          
                           {% endfor %}
                             
                             
@@ -330,7 +351,7 @@
                   <div id="panel-heading" class="panel-heading">Finished
                   </div>
                   <div id="panel-body-custom-finished" class="panel-body">
-                    <ul class="finished">
+                    <ul id="finished">
                         <li>
                             <div id="task-stat" class="label label-primary">Pending</div>
                             <div class="checkbox" id="task-content">Go Home on time</div>
