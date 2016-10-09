@@ -7,7 +7,9 @@ from flask import jsonify
 
 
 username = "fondson";
-json_file = "database.json"
+users_json = "users.json"
+tasks_json = "tasks.json"
+rewards_json = "rewards.json"
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -24,8 +26,8 @@ def index():
 
 @app.route('/sign_in', methods = ['POST'])
 def sign_in():
-	json_data = open(json_file)
-	data = json.load(json_data)
+	json_data = open(users_json)
+	data = json.load(users_json)
 	json_data.close()
 	username = request.form["username"]
 
@@ -45,7 +47,23 @@ def user(username):
 def assign():
     ret_data = {"todo": request.args.get('todo'),
     			"point": request.args.get('point')}
-    print(ret_data)
+
+    task_data = {"child" : "user1"
+			    , "deadline" : 0
+			    , "motipoint": ret_data["point"]
+			    , "name": ret_data["todo"]
+			    , "parent": "user2"
+			    , "statuss": "requested"
+			    , "submit_time": 0}
+
+    with open(tasks_json) as t:
+    	data = json.load(t)
+
+    data.update(task_data)
+
+    with open(tasks_json, 'w') as t:
+    	json.dump(data, t)
+
     return jsonify(ret_data)
 
 
