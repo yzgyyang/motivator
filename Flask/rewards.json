@@ -1,0 +1,10 @@
+{
+	"rewards" : [ {
+    "child" : "user1",
+    "description" : "I will buy you a SP4!",
+    "motipoint" : 250,
+    "name" : "Surface Pro",
+    "parent" : "user2",
+    "status" : "approved"
+  } ]
+}

@@ -1,0 +1,24 @@
+{
+  "user" : {
+    "user1" : {
+      "avail_reward" : 1,
+      "avail_task" : 1,
+      "connect" : "user2",
+      "email" : "user1@gmail.com",
+      "motipoint" : 40,
+      "password" : "iamthechild",
+      "reward" : [ 0 ],
+      "role" : "child",
+      "task" : [ 0, 1, 2, 3 ]
+    },
+    "user2" : {
+      "completed_task" : 1,
+      "connect" : "user1",
+      "email" : "user2@gmail.com",
+      "password" : "iamtheparent",
+      "reward" : [ 0 ],
+      "role" : "parent",
+      "task" : [ 0, 1, 2, 3 ]
+    }
+  }
+}
