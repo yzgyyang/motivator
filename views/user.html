@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Motivater</title>
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+      <!--nav part-->
+      <div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header"><a class="navbar-brand" href="#">Motivator</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+              <li><a href="user.html">Home</a></li>
+              <li><a href="#manage">Account</a></li>
+              <li><a href="login.html">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--header-->
+      <div id="custom-bootstrap-menu" class="jumbotron text-left">
+          <div id="current-reward">
+              <img id="coin-header" src="../public/coin_dollar_icon.gif" style="width:30px;height:30px;">
+              <h1>100</h1>
+          </div>
+          <div id="movitation">
+              <i>"Hi, welcome to the website! GAG sAGA GAGA!, I just want to say something so it fills up the thrid line and check if it's not awk."</i>
+          </div>
+      </div>
+      <!--to do list + others-->
+      <div id="content-area" class="container">
+          <div class="row">              
+            <div id="todo-panel" class="col-xs-7">                 
+              <div id="custom-panel-default" class="panel panel-default">
+                  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
+                      + Assign
+                  </button>
+                  
+                  <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">New Task</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form class="form-horizontal">
+                            <fieldset>
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="todo">To Do</label>  
+                              <div class="col-md-4">
+                              <input id="todo" name="todo" type="text" placeholder="Do housework" class="form-control input-md" >
+
+                              </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="motipoint">Motipoints</label>  
+                              <div class="col-md-4">
+                              <input id="motipoint" name="motipoint" type="text" placeholder="5" class="form-control input-md">
+
+                              </div>
+                            </div>
+                                
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="deadline">Deadline</label>  
+                              <div class="col-md-4">
+                              <input id="deadline" name="deadline" type="text" placeholder="12/30/2016" class="form-control input-md">
+
+                              </div>
+                            </div>
+
+        
+                            </fieldset>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+
+                  <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#requestModal">
+                      + Request
+                  </button>
+                  <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">New Task</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                            <fieldset>
+
+                    
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="todo">Request To Do</label>  
+                              <div class="col-md-4">
+                              <input id="todo" name="todo" type="text" placeholder="Clean the house" class="form-control input-md" >
+
+                              </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <!--<div class="form-group">
+                              <label class="col-md-4 control-label" for="motipoint">Motipoints</label>  
+                              <div class="col-md-4">
+                              <input id="motipoint" name="motipoint" type="text" placeholder="50" class="form-control input-md">
+
+                              </div>
+                            </div>-->
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="deadline">Deadline</label>  
+                              <div class="col-md-4">
+                              <input id="deadline" name="deadline" type="text" placeholder="12/30/2016" class="form-control input-md">
+
+                              </div>
+                            </div>
+
+                            <!-- Textarea -->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="description">Description</label>
+                              <div class="col-md-4">                     
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                              </div>
+                            </div>
+
+        
+                            </fieldset>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Request Task</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="panel-heading" class="panel-heading"> To Do List
+                      
+                  </div>
+                  
+                  <div id="panel-body-custom" class="panel-body">
+                    
+                    <div class="row">
+                      
+                      <div class="col-md-12">
+                        <div class="todolist not-done">
+                          <ul id="not-finished">
+                            <li>
+                              <div class="checkbox" id="todo-box" >
+                                <label><input type="checkbox" value="" />Buy bread</label>
+                              </div>
+                            </li>
+                              <li>
+                              <div class="checkbox" id="todo-box" >
+                                <label><input type="checkbox" value="" />Buy milk</label>
+                              </div>
+                            </li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="did-panel" class="col-xs-7">
+                <div id="custom-panel-default" class="panel panel-default">
+                  <button type="button" id="user-btn" class="btn btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                    + Clear
+                  </button>
+                  <!-- A model -->
+                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Delete Confirm</h4>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure to clear all the completed checked task?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Delete Anyway</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="panel-heading" class="panel-heading">Finished
+                  </div>
+                  <div id="panel-body-custom-finished" class="panel-body">
+                    <ul class="finished">
+                        <li>
+                            <div id="task-stat" class="label label-primary">Pending</div>
+                            <div class="checkbox" id="task-content">Go Home on time</div>
+                            
+                        </li>
+                        <li>
+                            <div class="checkbox" id="task-content">Run for your life</div>
+                            <div id="task-stat" class="label label-primary">Pending</div>
+                        </li>
+                        <li>
+                            <div class="checkbox" id="task-content">Run</div>
+                            <div id="task-stat" class="label label-danger">Check</div>
+                        </li>
+    
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id ="goal-panel" class="col-xs-4">
+                <div id="custom-panel-default" class="panel panel-default">
+                  <button type="button" id="user-btn" class="btn btn btn-danger" data-toggle="modal" data-target="#addModal">
+                    + Add
+                  </button>
+                  <!-- A model -->
+                  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">New Goal</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form class="form-horizontal">
+                            <fieldset>
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="todo">Goal</label>  
+                              <div class="col-md-4">
+                              <input id="todo" name="todo" type="text" placeholder="Buy a PS10" class="form-control input-md" >
+
+                              </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="motipoint">Motipoints</label>  
+                              <div class="col-md-4">
+                              <input id="motipoint" name="motipoint" type="text" placeholder="5000" class="form-control input-md">
+
+                              </div>
+                            </div>
+
+        
+                            </fieldset>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Goal</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <div id="panel-heading" class="panel-heading"> Goal
+                  </div>
+                  <div id="panel-body-custom-finished" class="panel-body"> 
+                       <ul class="finished">
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.gif" style="width:13px;height:13px;">
+                            <span id="coin-value">100</span>
+                            <div class="checkbox" id="task-content">Parttttttyyyy</div>
+                            
+                            
+                        </li>
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.gif" style="width:13px;height:13px;">
+                            <span id="coin-value">2000</span>
+                            <div class="checkbox" id="task-content">huehuehue</div>
+                            
+                        </li>
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.gif" style="width:13px;height:13px;">
+                            <span id="coin-value">150</span>
+                            <div class="checkbox" id="task-content">Game for 24 years</div>
+                            
+                        </li>
+    
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
