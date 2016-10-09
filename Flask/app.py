@@ -3,6 +3,7 @@ from random import randint
 
 import json
 import flask_login
+from flask import jsonify 
 
 
 username = "fondson";
@@ -38,6 +39,13 @@ def sign_in():
 def user(username):
 
 	return render_template('user.html')
+	
+# test for jquery
+@app.route('/echo/', methods=['GET'])
+def echo():
+    ret_data = {"value": request.args.get('echoValue')}
+    return jsonify(ret_data)
+
 
 # Run the app :)
 if __name__ == '__main__':

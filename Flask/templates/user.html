@@ -12,9 +12,37 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/static/custom.css">
-    <link rel="stylesheet" type="text/css" href="/static/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/font-awesome.min.css"> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- jquery -->
+    <script type=text/javascript>
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    
+    <script type="text/javascript">
+      $(function() {
+        $("#submitBtn").click(function() {
+            console.log("ajax");
+             $.ajax({
+                type: "GET",
+                url: $SCRIPT_ROOT + "/echo/",
+                contentType: "application/json; charset=utf-8",
+                data: { echoValue: $('input[name="echoText"]').val() },
+                success: function(data) {
+                    console.log(data.value);
+                    $.each(data,function(i,j){
+                    //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
+                    $('.checkbox').append("<label><input type=checkbox value='' />"+ data.value +
+                      "</label>")
+                    })
 
+                }
+            });     
+        });
+      });
+    </script>
+
+  
   </head>
   <body>
       <!--nav part-->
@@ -49,6 +77,9 @@
             <div id="todo-panel" class="col-xs-7">                 
               <div id="custom-panel-default" class="panel panel-default">
                   <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
+
+              <div class="panel panel-default">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#assignModal">
                       + Assign
                   </button>
                   
@@ -93,16 +124,26 @@
                             </form>
 
                         </div>
-                        <div class="modal-footer">
+                        <<!-- div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button> -->
+                           <!-- <input type="text" size="10" id="echoText" name="echoText"> -->
+                        <!-- </div> -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                          <button type="button" id="submitBtn" class="btn btn-primary" data-dismiss="modal">Assign Task</button>
                         </div>
                       </div>
                     </div>
                   </div>
+
                     
 
                   <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#requestModal">
+        
+              
+                  <strong><div id="echoResult"></div></strong>
+                  <button id="user-btn" class="btn btn-primary">
                       + Request
                   </button>
                   <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -178,6 +219,7 @@
                             <li>
                               <div class="checkbox" id="todo-box" >
                                 <label><input type="checkbox" value="" />Buy bread</label>
+                                <label><input type="checkbox" value="" /> bread</label>
                               </div>
                             </li>
                               <li>
