@@ -45,6 +45,7 @@ def user(username):
 def assign():
     ret_data = {"todo": request.args.get('todo'),
     			"point": request.args.get('point')}
+    print(ret_data)
     return jsonify(ret_data)
 
 
