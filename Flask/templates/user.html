@@ -22,6 +22,8 @@
     
     <script type="text/javascript">
       $(function() {
+        var max = 5;
+        var count = 0;
         $("#assignBtn").click(function() {
             console.log("ajax");
              $.ajax({
@@ -32,9 +34,8 @@
                         point: $('input[name="motipoint"]').val()},
                 success: function(data) {
                     console.log(data.todo, data.point);
-                    
                     //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
-                    $('#not-finished').append("<li><div class='checkbox' id='todo-box' ><label><input type='checkbox' value='' />"+ data.todo + "</label></div></li>")
+                    $('#not-finished').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
                     
 
                 }
@@ -135,7 +136,7 @@
 
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
+                        
                           <button type="button" id="assignBtn" class="btn btn-danger" data-dismiss="modal">Assign Task</button>
 
                           <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
