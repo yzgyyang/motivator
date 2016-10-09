@@ -41,15 +41,18 @@ def sign_in():
 @app.route('/<username>')
 def user(username):
 	print(username)
+	user_data = open(users_json)
+	data = json.load(user_data)
+	role = data["user"][username]["role"]
+	user_data.close()
 	task_data = open(tasks_json)
 	data = json.load(task_data)
 	task_data.close();
 	t = {"tasks":[]}
 	for task in data["tasks"]:
-		if(task["child"] == username):
+		if task["child"] == username:
 			t["tasks"].append(task)
-	print("T is", t["tasks"])
-	return render_template('user.html', tasks=t["tasks"])
+	return render_template('user.html', tasks=t["tasks"], username=username, role=role)
 	
 # test for jquery
 @app.route('/assign/', methods=['GET'])
