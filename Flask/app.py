@@ -65,7 +65,12 @@ def goal():
 
 
 # assign new todo
-	
+@app.route('/checkboxlookup/', methods=["GET", "POST"])
+def checkboxlookup():
+    ret_data = {"todo": request.args.get('todo'),
+    			"point": request.args.get('point')}
+    print(ret_data)
+    return jsonify(ret_data)
 	
 # test for jquery
 @app.route('/assign/', methods=['GET'])

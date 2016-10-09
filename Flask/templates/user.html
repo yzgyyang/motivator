@@ -34,6 +34,16 @@
         var motipoint = $('#motipoint').text();
         motipoint = Number(motipoint) + Number(array[2]);
         $('#motipoint').text(motipoint);
+        $.ajax({
+          type: "GET",
+          contentType: "application/json; charset=utf-8",
+          url: "/checkboxlookup/",
+          data: {todo: array[1], point: array[2]},
+          success: function (data) {
+            console.log(data.todo);
+            console.log(data.point);
+          }
+        });
         console.log(motipoint);
         };
         //triggers when user clicked on the checkbox
