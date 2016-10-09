@@ -1,5 +1,5 @@
 #custom-bootstrap-menu.navbar-default .navbar-brand{
-    color: black;
+    color: white;
     font-size: 35px;
     font-family: "Brush Script MT", cursive;
 	font-style: normal;
@@ -10,18 +10,18 @@
 #custom-bootstrap-menu.navbar-default {
     font-size: 15px;
     background-color: white;
-    border-radius: 0px;
+    margin-bottom: 0;
+    background-color:#093d5a;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     border-radius: 6px;
-    color: rgba(20, 20, 20, 1);
-    background-color: white;
+    color: white;
     font-weight: bold;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
     color: slategrey;
-    background-color: white;
+    
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
@@ -45,63 +45,69 @@
 }
 #custom-bootstrap-menu.jumbotron {
     background-color: white;
+    height: 100%;
+    margin-bottom: 0px;
+    width: 350px;
+    display: inline-block;
 }
 #current-reward{
-    padding-left: 15%;
-    background-color: white;
-    width: 30%;
+    width: 170px;
+    margin-left: 25%;
+    margin-top: 1.5%;
     display:inline-block;
 }
 #custom-bootstrap-menu.jumbotron h1{
     font-size: 80px;
+    float: right;
 }
 #movitation{
-    float: right;
-    width: 40%;
-    margin-right: 5%;
-    font-size: 20px;
-    margin-top: 50px;
-    margin-top: 38px;
+    float: left;
+    width: 80%;
+    margin-left: 14%;
+    margin-right: 15%;
+    font-size: 22px;
+    margin-top: 20%;
+    
 }
 #content-area{
+    width: 70%;
+    height: 600px;
     background-color:white;
-    margin-top: -20px;
-    width: 100%;
-    height: auto;
-
+    padding-top:0 auto;
+    float: right;
 }
-
 #todo-panel{
     font-size: 15px;
-    margin-left: 1%;
-    width: 32%;
-    min-width: 300px;
+    width: 98%;
     height: auto;
     margin-top: 20px;
-    
 }
 #todo-panel img{
     float: right;
 }
 #panel-heading{
     font-weight: bold;
-    
+    background-color:#093d5a;
+    color:white;
 }
+
 #goal-panel{
     font-size: 15px;
-    width: 33%;
+    width: 49%;
     height: auto;
-    margin-top: 20px;
     min-width: 300px;
 }
 #did-panel{
     font-size: 15px;
-    width: 33%;
+    width: 49%;
     height: auto;
-    margin-top: 20px;
     min-width: 300px;
 }
 #panel-body-custom{
+    height: 300px;
+}
+#panel-body-custom-finished{
+    height: 300px;
     height: 300px;
 }
 #panel-body-custom ul{
@@ -110,9 +116,19 @@
 }
 #panel-body-custom li{
     background:#fff;
-    border:none;
-    border-bottom:2px solid #ddd;
-    height: 25px;
+    margin-top: -10px;
+}
+#todo-box{
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+#panel-body-custom-finished ul{
+    list-style: none;
+    padding-left: 0;
+}
+#panel-body-custom-finished li{
+    background:#fff;
+    padding: 5px;
 }
 #not-finished{
     list-style: none;
@@ -121,6 +137,27 @@
 #user-btn{
     float:right;
     display: block;
-    
-    margin: 4px 4px 4px 0;
+    margin: 4px 6px 6px 0;
+}
+#task-stat{
+    float:left;
+    width: 75px;    
+    margin-right: 5px;
+}
+#task-content{
+    display:inline;
+}
+#coin{
+    float: left;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+#coin-header{
+    float: left;
+    margin-top: 50px;
+}
+#coin-value{
+    margin-right: 5px;
+    width: 35px;
+    float: left;
 }

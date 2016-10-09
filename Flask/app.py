@@ -1,12 +1,19 @@
 from flask import Flask, render_template, request, url_for, redirect
 from random import randint
+
 import json
+import flask_login
+
 
 username = "fondson";
 json_file = "database.json"
 
 # Initialize the Flask application
 app = Flask(__name__)
+
+login_manager = flask_login.LoginManager()
+
+login_manager.init_app(app)
 
 # Define a route for the default URL, which loads the form
 @app.route('/')
@@ -26,7 +33,7 @@ def sign_in():
 		return redirect(url_for("user", username = username))
 	return redirect(url_for("index"))
 
-# Define a route for the default URL, which loads the form
+
 @app.route('/<username>')
 def user(username):
 
