@@ -41,9 +41,10 @@ def user(username):
 	return render_template('user.html')
 	
 # test for jquery
-@app.route('/echo/', methods=['GET'])
-def echo():
-    ret_data = {"value": request.args.get('echoValue')}
+@app.route('/assign/', methods=['GET'])
+def assign():
+    ret_data = {"todo": request.args.get('todo'),
+    			"point": request.args.get('point')}
     return jsonify(ret_data)
 
 

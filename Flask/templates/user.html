@@ -25,16 +25,17 @@
             console.log("ajax");
              $.ajax({
                 type: "GET",
-                url: $SCRIPT_ROOT + "/echo/",
+                url: $SCRIPT_ROOT + "/assign/",
                 contentType: "application/json; charset=utf-8",
-                data: { echoValue: $('input[name="echoText"]').val() },
+                data: { todo: $('input[name="todo"]').val(),
+                        point: $('input[name="motipoint"]').val()},
                 success: function(data) {
-                    console.log(data.value);
-                    $.each(data,function(i,j){
+                    console.log(data.todo, data.point);
+                    
                     //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
-                    $('.checkbox').append("<label><input type=checkbox value='' />"+ data.value +
+                    $('.checkbox').append("<label><input type=checkbox value='' />"+ data.todo +
                       "</label>")
-                    })
+                    
 
                 }
             });     
@@ -76,7 +77,7 @@
           <div class="row">              
             <div id="todo-panel" class="col-xs-7">                 
               <div id="custom-panel-default" class="panel panel-default">
-                  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
+                 <!--  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">  -->
 
               <div class="panel panel-default">
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#assignModal">
@@ -139,10 +140,8 @@
 
                     
 
-                  <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#requestModal">
+                  <!-- <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#requestModal"> -->
         
-              
-                  <strong><div id="echoResult"></div></strong>
                   <button id="user-btn" class="btn btn-primary">
                       + Request
                   </button>
@@ -216,12 +215,7 @@
                       <div class="col-md-12">
                         <div class="todolist not-done">
                           <ul id="not-finished">
-                            <li>
-                              <div class="checkbox" id="todo-box" >
-                                <label><input type="checkbox" value="" />Buy bread</label>
-                                <label><input type="checkbox" value="" /> bread</label>
-                              </div>
-                            </li>
+        
                               <li>
                               <div class="checkbox" id="todo-box" >
                                 <label><input type="checkbox" value="" />Buy milk</label>
