@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Motivater</title>
+    <title>{{ username }}({{ role }}) :: Motivator</title>
     <!-- JQuery -->
     <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     
@@ -110,21 +110,20 @@
           <div id="todo-panel" class="col-xs-7">                 
               <div id="custom-panel-default" class="panel panel-default">
 
-                 <!--  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">  -->
+                  <!--  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">  -->
 
-              
-                  
-
-                  
+                  {% if role == "child" %}
                   <button type="button" id="user-btn" class="btn btn-success" data-toggle="modal" data-target="#requestModal">
                       Submit
                   </button>
-                  
+                  {% endif %}
 
+                  {% if role == "parent" %}
                   <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
                       + Assign
                   </button>
-                  
+                  {% endif %}
+
                   <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -176,10 +175,11 @@
                     </div>
                   </div>
                     
-
+                  {% if role == "child" %}
                   <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#requestModal">
                       + Request
                   </button>
+                  {% endif %}
                   <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">

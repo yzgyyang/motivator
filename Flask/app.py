@@ -40,16 +40,21 @@ def sign_in():
 
 @app.route('/<username>')
 def user(username):
+	print(username)
+	user_data = open(users_json)
+	data = json.load(user_data)
+	role = data["user"][username]["role"]
+	user_data.close()
 	task_data = open(tasks_json)
 	data = json.load(task_data)
 	task_data.close()
 	count = 0
 	t = {"tasks":[]}
 	for task in data["tasks"]:
-		if(task["child"] == username):
+		if task["child"] == username:
 			t["tasks"].append(task)
 			count += 1
-	return render_template('user.html', tasks=t["tasks"], count=count)
+	return render_template('user.html', tasks=t["tasks"], username=username, role=role, count=count)
 #assign new goal
 @app.route('/goal/', methods=['GET'])
 def goal():
@@ -60,6 +65,9 @@ def goal():
 
 
 # assign new todo
+	
+	
+# test for jquery
 @app.route('/assign/', methods=['GET'])
 def assign():
     ret_data = {"todo": request.args.get('todo'),
