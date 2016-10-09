@@ -1,0 +1,73 @@
+{
+  "rewards" : [ {
+    "child" : "user1",
+    "description" : "I will buy you a SP4!",
+    "motipoint" : 250,
+    "name" : "Surface Pro",
+    "parent" : "user2",
+    "status" : "approved"
+  } ],
+  "tasks" : [ {
+    "child" : "user1",
+    "deadline" : "2016-10-08T13:00:00.000Z",
+    "description" : "Hack at MHacks 8 cuz it's hype!",
+    "motipoint" : 200,
+    "name" : "MHacks 8",
+    "parent" : "user2",
+    "punishment" : 50,
+    "status" : "approved",
+    "submit_time" : "2016-10-08T12:59:00.000Z"
+  }, {
+    "child" : 2,
+    "deadline" : "2016-10-02T13:00:00.000Z",
+    "description" : "Submit before midnight",
+    "motipoint" : 40,
+    "name" : "CS 246 Assignment3",
+    "parent" : "user2",
+    "punishment" : 100,
+    "status" : "completed",
+    "submit_time" : "2016-10-06T13:00:00.000Z"
+  }, {
+    "child" : "user1",
+    "deadline" : "2016-10-07T13:00:00.000Z",
+    "description" : "There's a Photo 101 Session at RCH.",
+    "motipoint" : 100,
+    "name" : "Attend Photo Club",
+    "parent" : "user2",
+    "punishment" : 5,
+    "status" : "analysis_required",
+    "submit_time" : "2016-10-07T11:00:00.000Z"
+  }, {
+    "child" : "user1",
+    "deadline" : "2016-10-10T13:00:00.000Z",
+    "description" : "I can buy some milk and bread.",
+    "motipoint" : 0,
+    "name" : "Grocery Shopping",
+    "parent" : "user2",
+    "punishment" : 0,
+    "status" : "requested",
+    "submit_time" : 0
+  } ],
+  "user" : {
+    "user1" : {
+      "avail_reward" : 1,
+      "avail_task" : 1,
+      "connect" : "user2",
+      "email" : "user1@gmail.com",
+      "motipoint" : 40,
+      "password" : "iamthechild",
+      "reward" : [ 0 ],
+      "role" : "child",
+      "task" : [ 0, 1, 2, 3 ]
+    },
+    "user2" : {
+      "completed_task" : 1,
+      "connect" : "user1",
+      "email" : "user2@gmail.com",
+      "password" : "iamtheparent",
+      "reward" : [ 0 ],
+      "role" : "parent",
+      "task" : [ 0, 1, 2, 3 ]
+    }
+  }
+}

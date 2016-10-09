@@ -1,0 +1,126 @@
+#custom-bootstrap-menu.navbar-default .navbar-brand{
+    color: black;
+    font-size: 35px;
+    font-family: "Brush Script MT", cursive;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+#custom-bootstrap-menu.navbar-default {
+    font-size: 15px;
+    background-color: white;
+    border-radius: 0px;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    border-radius: 6px;
+    color: rgba(20, 20, 20, 1);
+    background-color: white;
+    font-weight: bold;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: slategrey;
+    background-color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: white;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: white;
+}
+#custom-bootstrap-menu.jumbotron {
+    background-color: white;
+}
+#current-reward{
+    padding-left: 15%;
+    background-color: white;
+    width: 30%;
+    display:inline-block;
+}
+#custom-bootstrap-menu.jumbotron h1{
+    font-size: 80px;
+}
+#movitation{
+    float: right;
+    width: 40%;
+    margin-right: 5%;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-top: 38px;
+}
+#content-area{
+    background-color:white;
+    margin-top: -20px;
+    width: 100%;
+    height: auto;
+
+}
+
+#todo-panel{
+    font-size: 15px;
+    margin-left: 1%;
+    width: 32%;
+    min-width: 300px;
+    height: auto;
+    margin-top: 20px;
+    
+}
+#todo-panel img{
+    float: right;
+}
+#panel-heading{
+    font-weight: bold;
+    
+}
+#goal-panel{
+    font-size: 15px;
+    width: 33%;
+    height: auto;
+    margin-top: 20px;
+    min-width: 300px;
+}
+#did-panel{
+    font-size: 15px;
+    width: 33%;
+    height: auto;
+    margin-top: 20px;
+    min-width: 300px;
+}
+#panel-body-custom{
+    height: 300px;
+}
+#panel-body-custom ul{
+    list-style: none;
+    padding-left: 0;
+}
+#panel-body-custom li{
+    background:#fff;
+    border:none;
+    border-bottom:2px solid #ddd;
+    height: 25px;
+}
+#not-finished{
+    list-style: none;
+    padding-left: 0;
+}
+#user-btn{
+    float:right;
+    display: block;
+    
+    margin: 4px 4px 4px 0;
+}
