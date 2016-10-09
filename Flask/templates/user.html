@@ -42,6 +42,7 @@
           success: function (data) {
             console.log(data.todo);
             console.log(data.point);
+            console.log(array[0]);
           }
         });
         console.log(motipoint);
@@ -68,14 +69,15 @@
                 url: $SCRIPT_ROOT + "/assign/",
                 contentType: "application/json; charset=utf-8",
                 data: { todo: $('input[name="todo"]').val(),
-                        point: $('input[name="motipoint"]').val()},
+                        point: $('input[name="motipoint"]').val(),
+                        id: count},
                 success: function(data) {
                     console.log(data.todo, data.point);
                     //$('.checkbox').append("<input type=checkbox>"+ data.value +"</br>");
                     if(count <= 5 ){
-                    $('#col1').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
+                    $('#col1').append("<li id='"+count+"'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='"+count+","+data.todo+","+data.point+"' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
                     }else if(count > 5){
-                    $('#col2').append("<li id='todo-assigned'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
+                    $('#col2').append("<li id='"+count+"'><button type='button' id='user-btn-task' class='btn btn btn-warning'><input id='todo-box' class='checkbox' type='checkbox' value='"+count+","+data.todo+","+data.point+"' /><p id='todo-box-p'>" + data.todo + "</p><img id='todo-coin' src='../static/coin_dollar_icon.gif' style='width:15px;height:15px;''><p id='todo-coin-p'>"+data.point+"</p></button></li> ")
                     }
                     
 
@@ -111,7 +113,9 @@
               <h1 id="motipoint">100</h1>
           </div>
           <div id="movitation">
-              <i>"Hi, welcome to the website! GAG sAGA GAGA!, I just want to say something so it fills up the thrid line and check if it's not awk."</i>
+              <i>"Always do your best. What you plant now, you will harvest later." --Og Mandino
+
+      </i>
           </div>
       </div>
       <!--to do list + others-->
@@ -379,11 +383,11 @@
                             
                         </li>
                         <li>
-                            <div class="checkbox" id="task-content">Run for your life</div>
+                            <div class="checkbox" id="task-content">Jog for an hour</div>
                             <div id="task-stat" class="label label-primary">Pending</div>
                         </li>
                         <li>
-                            <div class="checkbox" id="task-content">Run</div>
+                            <div class="checkbox" id="task-content">Finish chess puzzle</div>
                             <div id="task-stat" class="label label-danger">Check</div>
                         </li>
     
@@ -445,20 +449,20 @@
                         <li>
                             <img id="coin" src="../static/coin_dollar_icon.gif" style="width:13px;height:13px;">
                             <span id="coin-value">100</span>
-                            <div class="checkbox" id="task-content">Parttttttyyyy</div>
+                            <div class="checkbox" id="task-content">Attend birthday party</div>
                             
                             
                         </li>
                         <li>
                             <img id="coin" src="../static/coin_dollar_icon.gif" style="width:13px;height:13px;">
                             <span id="coin-value">2000</span>
-                            <div class="checkbox" id="task-content">huehuehue</div>
+                            <div class="checkbox" id="task-content">Go to Zoo</div>
                             
                         </li>
                         <li>
                             <img id="coin" src="../static/coin_dollar_icon.gif" style="width:13px;height:13px;">
                             <span id="coin-value">150</span>
-                            <div class="checkbox" id="task-content">Game for 24 years</div>
+                            <div class="checkbox" id="task-content">Candy</div>
                             
                         </li>
     

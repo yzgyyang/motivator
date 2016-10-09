@@ -76,9 +76,11 @@ def checkboxlookup():
 @app.route('/assign/', methods=['GET'])
 def assign():
     ret_data = {"todo": request.args.get('todo'),
-    			"point": request.args.get('point')}
+    			"point": request.args.get('point'),
+    			"id": request.args.get('id')}
 
-    task_data = {"child" : "user1"
+    task_data = {"id":ret_data["id"],
+    "child" : "user1"
     , "deadline" : 0
     , "motipoint": ret_data["point"]
     , "name": ret_data["todo"]
