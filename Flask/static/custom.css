@@ -1,11 +1,13 @@
 #custom-bootstrap-menu.navbar-default .navbar-brand{
     color: white;
-    font-size: 35px;
+    font-size: 45px;
     font-family: "Brush Script MT", cursive;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.4px;
+    margin-left: auto;
+    margin-right: 20px;
 }
 #custom-bootstrap-menu.navbar-default {
     font-size: 15px;
@@ -52,8 +54,8 @@
 }
 #current-reward{
     width: 170px;
-    margin-left: 25%;
-    margin-top: 1.5%;
+    margin-left: 30%;
+    margin-top: 7%;
     display:inline-block;
 }
 #custom-bootstrap-menu.jumbotron h1{
@@ -63,7 +65,7 @@
 #movitation{
     float: left;
     width: 80%;
-    margin-left: 14%;
+    margin-left: 17%;
     margin-right: 15%;
     font-size: 22px;
     margin-top: 20%;
@@ -101,14 +103,13 @@
     font-size: 15px;
     width: 49%;
     height: auto;
-    min-width: 300px;
+    
 }
 #panel-body-custom{
-    height: 300px;
+    height: 260px;
 }
 #panel-body-custom-finished{
-    height: 300px;
-    height: 300px;
+    height: 260px;
 }
 #panel-body-custom ul{
     list-style: none;
@@ -117,10 +118,6 @@
 #panel-body-custom li{
     background:#fff;
     margin-top: -10px;
-}
-#todo-box{
-    padding-top: 5px;
-    margin-bottom: 5px;
 }
 #panel-body-custom-finished ul{
     list-style: none;
@@ -138,6 +135,8 @@
     float:right;
     display: block;
     margin: 4px 6px 6px 0;
+        background-color:#093d5a;
+    border-color:#093d5a;
 }
 #task-stat{
     float:left;
@@ -160,4 +159,44 @@
     margin-right: 5px;
     width: 35px;
     float: left;
+}
+#user-btn-clear{
+    background-color: darkgray;
+    float:right;
+    display: block;
+    margin: 4px 6px 6px 0;
+    background-color:#093d5a;
+    border-color:  #093d5a;
+}
+#task-detail{
+    margin-top: 2px;
+    width: 30%;
+    margin-left: 40px;
+}
+#user-btn-task{
+    width: 100%;
+    height: 35px;
+    margin-top: 18px;
+    
+}
+#user-btn-task #todo-task{
+    float:left;
+    
+}
+
+#todo-box{
+    float:left;
+    margin-right: 3px;
+}
+#todo-box-p{
+    float: left;
+    margin-left: 5px;
+    font-weight: 500;
+}
+#todo-coin{
+    margin-top: 3px;
+}
+#todo-coin-p{
+    float: right;
+    margin-right: 5px;
 }
