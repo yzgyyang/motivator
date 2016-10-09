@@ -25,7 +25,7 @@
             </button>
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
               <li><a href="user.html">Home</a></li>
               <li><a href="#manage">Account</a></li>
               <li><a href="login.html">Logout</a></li>
@@ -47,8 +47,8 @@
       <div id="content-area" class="container">
           <div class="row">              
             <div id="todo-panel" class="col-xs-7">                 
-              <div class="panel panel-default">
-                  <button type="button" id="user-btn" class="btn btn-primary" data-toggle="modal" data-target="#assignModal">
+              <div id="custom-panel-default" class="panel panel-default">
+                  <button type="button" id="user-btn" class="btn btn-danger" data-toggle="modal" data-target="#assignModal">
                       + Assign
                   </button>
                   <!-- A model -->
@@ -77,15 +77,23 @@
                   </div>
                   
                   <div id="panel-body-custom" class="panel-body">
+                    
                     <div class="row">
+                      
                       <div class="col-md-12">
                         <div class="todolist not-done">
                           <ul id="not-finished">
                             <li>
-                              <div class="checkbox">
+                              <div class="checkbox" id="todo-box" >
                                 <label><input type="checkbox" value="" />Buy bread</label>
                               </div>
                             </li>
+                              <li>
+                              <div class="checkbox" id="todo-box" >
+                                <label><input type="checkbox" value="" />Buy milk</label>
+                              </div>
+                            </li>
+                            
                           </ul>
                         </div>
                       </div>
@@ -94,7 +102,7 @@
                 </div>
               </div>
               <div id="did-panel" class="col-xs-7">
-                <div class="panel panel-default">
+                <div id="custom-panel-default" class="panel panel-default">
                   <button type="button" id="user-btn" class="btn btn btn-primary" data-toggle="modal" data-target="#deleteModal">
                     + Clear
                   </button>
@@ -118,23 +126,56 @@
                   </div>
                   <div id="panel-heading" class="panel-heading">Finished
                   </div>
-                  <div id="panel-body-custom" class="panel-body">
+                  <div id="panel-body-custom-finished" class="panel-body">
                     <ul class="finished">
-                      <li>V Hi</li>
-                      <li>To buy something</li>
-                      <li>GAGA</li>
+                        <li>
+                            <div id="task-stat" class="label label-primary">Pending</div>
+                            <div class="checkbox" id="task-content">Go Home on time</div>
+                            
+                        </li>
+                        <li>
+                            <div class="checkbox" id="task-content">Run for your life</div>
+                            <div id="task-stat" class="label label-primary">Pending</div>
+                        </li>
+                        <li>
+                            <div class="checkbox" id="task-content">Run</div>
+                            <div id="task-stat" class="label label-danger">Check</div>
+                        </li>
+    
                     </ul>
                   </div>
                 </div>
               </div>
               <div id ="goal-panel" class="col-xs-4">
-                <div class="panel panel-default">
+                <div id="custom-panel-default" class="panel panel-default">
                   <button id="user-btn" class="btn btn-danger">
                           + Add
                       </button>
                   <div id="panel-heading" class="panel-heading"> Goal
                   </div>
-                  <div id="panel-body-custom" class="panel-body">                 
+                  <div id="panel-body-custom-finished" class="panel-body"> 
+                       <ul class="finished">
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.jpg" style="width:15px;height:15px;">
+                            <span id="coin-value">100</span>
+                            <div class="checkbox" id="task-content">Parttttttyyyy</div>
+                            
+                            
+                        </li>
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.jpg" style="width:15px;height:15px;">
+                            <span id="coin-value">2000</span>
+                            <div class="checkbox" id="task-content">huehuehue</div>
+                            
+                        </li>
+                        <li>
+                            <img id="coin" src="../public/coin_dollar_icon.jpg" style="width:15px;height:15px;">
+                            <span id="coin-value">150</span>
+                            <div class="checkbox" id="task-content">Game for 24 years</div>
+                            
+                        </li>
+    
+                    </ul>
                   </div>
               </div>
             </div>
